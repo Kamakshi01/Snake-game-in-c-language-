@@ -1,0 +1,233 @@
+SNAKE GAME :
+
+setup():
+void setup()
+{ 
+    gameover=0;
+    x=height/2
+    y=width/2
+    label1:
+      fruitx=rand()%20;
+      if(fruitx==0)
+         goto label1;
+    label2:
+      fruity=rand()%20;
+      if(fruitx==0)
+         goto  label2;
+    score=0
+}
+
+Input():
+void input()
+{
+
+       if(kbhit())
+
+       {
+
+                  switch(getch())
+
+                  {
+
+                            case 'a':
+
+                                      flag=1;
+
+                                      break;
+
+                            case 's':
+
+                                      flag=2;
+
+                                      break;
+
+                            case 'd':
+
+                                      flag=3;
+
+                                      break;
+
+                            case 'w':
+
+                                      flag=4;
+
+                                      break;
+
+                            case 'x':
+
+                                      game_over=1;
+
+                                      break;
+
+                  }
+
+       }
+
+}
+
+Algorithm():
+
+void algorithm()
+
+ 
+
+{
+
+       sleep(0.01);
+
+       switch(flag)
+
+       {
+
+                  case 1:
+
+                            y--;
+
+                            break;
+
+                  case 2:
+
+                            x++;
+
+                            break;
+
+                  case 3:
+
+                            y++;
+
+                            break;
+
+                  case 4:
+
+                            x--;
+
+                            break;
+
+                  default:
+
+                            break;
+
+       }
+
+       
+
+       if(x<0 || x>Length || y<0 || y>width)
+
+         game_over=1;
+
+       if(x==foodx && y==food_y)
+
+       {
+
+                  state3:
+
+                            foodx=rand()%20;
+
+                            if(foodx==0)
+
+                             goto state3;
+
+                  state4:
+
+                            food_y=rand()%20;
+
+                            if(food_y==0)
+
+                             goto state4;
+
+                             
+
+                  Score+=10;
+
+       }
+
+}
+
+SLEEP:
+void main()
+
+{
+       int m,n;
+
+       setup();
+
+       while(!game_over)
+
+       {
+
+                  draw();
+
+                  input();
+
+                  algorithm();
+
+       }
+
+}
+
+CODE:
+// C program to build the outline
+// boundary using draw()
+#include <stdio.h>
+#include <stdlib.h>
+int i, j, height = 30;
+int width = 30, gameover, score;
+
+// Function to draw a boundary
+void draw()
+{
+	// system("cls");
+	for (i = 0; i < height; i++) {
+		for (j = 0; j < width; j++) {
+			if (i == 0 || i == width - 1 || j == 0
+				|| j == height - 1) {
+				printf("#");
+			}
+			else {
+				printf(" ");
+			}
+		}
+		printf("\n");
+	}
+}
+
+// Driver Code
+int main()
+{
+	// Function Call
+	draw();
+
+	return 0;
+}
+
+Output:
+##############################
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+#                            #
+##############################
